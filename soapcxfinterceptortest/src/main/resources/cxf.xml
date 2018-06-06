@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:cxf="http://cxf.apache.org/core" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd 
+                        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.kian.cxf.interceptor.CustomInterceptor" id="customInterceptor" />
+	
+	<cxf:bus>
+		<cxf:inInterceptors>
+			<ref bean="customInterceptor" />
+		</cxf:inInterceptors>
+<!-- 		<cxf:outInterceptors>
+			<ref bean="customInterceptor" />
+		</cxf:outInterceptors> -->
+<!-- 		<cxf:outFaultInterceptors> -->
+<!-- 			<ref bean="customInterceptor" /> -->
+<!-- 		</cxf:outFaultInterceptors> -->
+<!-- 		<cxf:inFaultInterceptors>
+			<ref bean="customInterceptor" />
+		</cxf:inFaultInterceptors> -->
+	</cxf:bus>
+</beans>
